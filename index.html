@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Torrent Pharma–JB Pharma M&A case study: strategy, valuation, financial modeling and transaction analysis.">
+  <title>Torrent Pharma × JB Pharma | M&A Case Study</title>
+
+  <style>
+    :root {
+      --navy: #102b39;
+      --dark: #0b202d;
+      --gold: #dec189;
+      --text: #193342;
+      --muted: #586b77;
+      --light: #f3f6f8;
+      --border: #dce4e8;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-underline-offset: 4px; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid #b8822c;
+      outline-offset: 5px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -100px;
+      left: 15px;
+      background: white;
+      padding: 12px;
+      z-index: 100;
+    }
+
+    .skip-link:focus { top: 10px; }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 700;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: .06em;
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a { text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+
+    .hero {
+      background: var(--navy);
+      color: white;
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero .eyebrow { color: var(--gold); }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -.04em;
+      margin-bottom: 25px;
+    }
+
+    .cross {
+      display: block;
+      font-size: 32px;
+      color: var(--gold);
+      margin: 5px 0;
+    }
+
+    .subtitle {
+      font-size: 23px;
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy {
+      color: #c1d0d9;
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 20px;
+      border: 1px solid #79909c;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .button-primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
+    }
+
+    .button:hover { filter: brightness(1.1); }
+
+    .hero-date {
+      color: #bdcdd6;
+      font-size: 13px;
+      margin: 23px 0 0;
+    }
+
+    .brief {
+      background: #193744;
+      padding: 30px;
+      border-top: 3px solid var(--gold);
+    }
+
+    .brief h2 {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .brief p { color: #c1d0d9; font-size: 15px; }
+    .brief dl { margin: 24px 0 0; }
+
+    .brief dl div {
+      border-top: 1px solid #435a66;
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    dt { font-size: 12px; color: #b7c9d3; }
+    dd { margin: 3px 0 0; font-size: 14px; }
+
+    .metrics-wrap {
+      background: var(--light);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0 22px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .metric {
+      padding-right: 18px;
+      border-right: 1px solid var(--border);
+    }
+
+    .metric:last-child { border: none; }
+
+    .metric-label, .metric-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .metric-value {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      line-height: 1.3;
+      margin-bottom: 5px;
+      white-space: nowrap;
+    }
+
+    .metric-value small {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .source {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 22px 0 0;
+    }
+
+    .section { padding: 75px 0; }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: clamp(30px, 3.5vw, 43px);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      margin-bottom: 20px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 35px;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+    }
+
+    .overview p { color: var(--muted); }
+
+    .note {
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+      margin-top: 28px;
+      font-size: 14px;
+    }
+
+    .steps { padding: 0; margin: 0; list-style: none; }
+
+    .steps li {
+      display: flex;
+      gap: 18px;
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .steps li:first-child { padding-top: 0; }
+
+    .step-number {
+      color: #788d99;
+      font-family: Georgia, serif;
+      font-size: 24px;
+    }
+
+    h3 { font-size: 18px; line-height: 1.4; margin-bottom: 8px; }
+    .steps p { margin: 0; font-size: 14px; }
+
+    .light { background: var(--light); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      border-top: 2px solid #bac9d1;
+      padding-top: 23px;
+    }
+
+    .card-number {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .card p { font-size: 15px; color: var(--muted); }
+
+    .question {
+      border-top: 1px solid var(--border);
+      padding-top: 15px;
+      font-size: 14px;
+    }
+
+    .question strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .method {
+      display: grid;
+      grid-template-columns: 50px 1fr 210px;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .method p { color: var(--muted); margin: 0; font-size: 14px; }
+
+    .method-output {
+      border-left: 1px solid var(--border);
+      padding-left: 22px;
+      align-self: center;
+    }
+
+    .downloads { background: var(--dark); color: white; }
+    .downloads .eyebrow { color: var(--gold); }
+    .downloads .section-intro { color: #bbccd6; }
+
+    .featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .file-card {
+      background: #173340;
+      border: 1px solid #425b68;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .file-type {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: .08em;
+      margin-bottom: 25px;
+    }
+
+    .file-card h3 {
+      font-family: Georgia, serif;
+      font-size: 29px;
+      font-weight: 400;
+    }
+
+    .file-card p { color: #c2d0d8; font-size: 15px; }
+
+    .file-card a {
+      margin-top: auto;
+      padding-top: 17px;
+      border-top: 1px solid #425b68;
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .file-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid #425b68;
+      text-decoration: none;
+    }
+
+    .file-row:hover strong { text-decoration: underline; }
+    .file-row strong { display: block; font-weight: 600; }
+    .file-row small { display: block; color: #bdcdd6; font-size: 13px; }
+    .file-row > span:last-child { color: var(--gold); font-size: 13px; }
+
+    details {
+      margin-top: 25px;
+      padding: 0 20px;
+      border: 1px solid #425b68;
+    }
+
+    summary { padding: 15px 0; cursor: pointer; font-size: 14px; }
+    details .file-row:last-child { border: none; }
+
+    .download-note { font-size: 12px; color: #bdcdd6; margin: 22px 0 0; }
+
+    .skills .card {
+      border-top: none;
+      border-left: 2px solid var(--gold);
+      padding: 0 0 0 20px;
+    }
+
+    footer {
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      padding: 38px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+    }
+
+    footer strong { color: var(--text); }
+    footer p { margin: 8px 0 0; }
+
+    @media (max-width: 900px) {
+      .hero-grid { gap: 30px; }
+      .metric-value { font-size: 27px; }
+      .metrics { gap: 15px; }
+      .overview { gap: 35px; }
+    }
+
+    @media (max-width: 700px) {
+      html { scroll-padding-top: 115px; }
+      .nav { flex-wrap: wrap; padding: 15px 0; gap: 12px; }
+      nav { gap: 20px; font-size: 13px; }
+      .hero { padding: 45px 0; }
+      .hero-grid, .overview, .cards, .featured, .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .metrics { grid-template-columns: 1fr 1fr; gap: 25px 15px; }
+      .metric:nth-child(2) { border: none; }
+      .metric-value { font-size: 29px; }
+      .section { padding: 50px 0; }
+      .method { grid-template-columns: 30px 1fr; gap: 15px; }
+      .method-output { grid-column: 2; border: none; padding: 0; }
+      .file-row { align-items: flex-start; }
+      .file-row > span:last-child { white-space: nowrap; }
+      .brief { padding: 25px; }
+    }
+
+    @media (max-width: 380px) {
+      .metric-value { font-size: 25px; }
+      .metric-value small { font-size: 12px; }
+      .buttons { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        Aarav Mookerjee
+        <span>FINANCE PORTFOLIO</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#overview">Overview</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#deliverables">Downloads ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Mergers &amp; Acquisitions / Pharmaceuticals</p>
+          <h1>Torrent Pharma<span class="cross">×</span>JB Pharma</h1>
+          <p class="subtitle">
+            Strategic fit. Valuation discipline.<br>
+            Shareholder impact.
+          </p>
+          <p class="hero-copy">
+            An independent M&amp;A case study connecting strategic rationale,
+            standalone valuation and transaction financing in Indian pharmaceuticals.
+          </p>
+          <div class="buttons">
+            <a class="button button-primary"
+               href="./Torrent_JB_Final_Model.xlsx" download>
+              Download final model ↓
+            </a>
+            <a class="button"
+               href="./Torrent_JB_MA_Investment_Report.docx" download>
+              Investment report ↓
+            </a>
+          </div>
+          <p class="hero-date">Case perspective: 29 June 2025 · Announcement-date analysis</p>
+        </div>
+
+        <aside class="brief" aria-label="Case framing">
+          <p class="eyebrow">The central question</p>
+          <h2>Can strategic fit translate into financial value?</h2>
+          <p>
+            Assess the acquisition price against standalone cash flows,
+            financing requirements and the impact of new share issuance.
+          </p>
+          <dl>
+            <div>
+              <dt>Acquirer</dt>
+              <dd>Torrent Pharmaceuticals Limited</dd>
+            </div>
+            <div>
+              <dt>Target</dt>
+              <dd>J.B. Chemicals &amp; Pharmaceuticals Limited</dd>
+            </div>
+            <div>
+              <dt>Announced structure</dt>
+              <dd>Controlling-stake acquisition followed by merger</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="metrics-wrap" aria-label="Key announced deal metrics">
+      <div class="container">
+        <div class="metrics">
+          <div class="metric">
+            <p class="metric-label">Headline equity valuation</p>
+            <p class="metric-value">₹25,689 <small>crore</small></p>
+            <p class="metric-note">Fully diluted basis</p>
+          </div>
+          <div class="metric">
+            <p class="metric-label">Initial stake purchase</p>
+            <p class="metric-value">46.39<small>%</small></p>
+            <p class="metric-note">From KKR’s holding entity</p>
+          </div>
+          <div class="metric">
+            <p class="metric-label">Initial cash consideration</p>
+            <p class="metric-value">₹11,917 <small>crore</small></p>
+            <p class="metric-note">₹1,600 per share</p>
+          </div>
+          <div class="metric">
+            <p class="metric-label">Proposed exchange ratio</p>
+            <p class="metric-value">51 <small>: 100</small></p>
+            <p class="metric-note">Torrent shares : JB shares</p>
+          </div>
+        </div>
+        <p class="source">
+          Announced terms, not model outputs.
+          <a href="https://jbpharma.com/download/press-release-amalgamation/?refresh=6a33855e7eabe1781761374&amp;wpdmdl=10511">
+            Source: company announcement, 29 June 2025 (PDF)
+          </a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="container">
+        <p class="eyebrow">01 / Deal overview</p>
+        <h2 class="section-title">One transaction.<br>Two forms of consideration.</h2>
+
+        <div class="overview">
+          <div>
+            <p>
+              The proposed structure combines a cash stake purchase with a
+              subsequent share-exchange merger. Understanding these mechanics
+              is essential to assessing funding needs and shareholder outcomes.
+            </p>
+            <p>
+              The analysis separates the headline equity valuation from the
+              cash consideration, then examines the implications for financing,
+              leverage and earnings per share.
+            </p>
+            <p class="note">
+              <strong>Analytical boundary</strong><br>
+              The case is framed using information available at announcement.
+              Later transaction outcomes are not treated as facts known at that time.
+            </p>
+          </div>
+
+          <ol class="steps">
+            <li>
+              <span class="step-number">A</span>
+              <div>
+                <h3>Acquire the controlling stake</h3>
+                <p>
+                  Purchase 46.39% at ₹1,600 per share, with an intended
+                  additional purchase of up to 2.80% from employees.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">B</span>
+              <div>
+                <h3>Make the mandatory open offer</h3>
+                <p>
+                  Offer to acquire up to 26% at ₹1,639.18 per share.
+                  Participation affects the cash funding requirement.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">C</span>
+              <div>
+                <h3>Combine through a merger</h3>
+                <p>
+                  Proposed exchange of 51 Torrent shares for every 100 JB shares,
+                  subject to the announced approval process.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="rationale">
+      <div class="container">
+        <p class="eyebrow">02 / Strategic rationale</p>
+        <h2 class="section-title">The opportunity—and what must hold true.</h2>
+        <p class="section-intro">
+          Management’s announced rationale provides the starting point.
+          These questions frame the independent assessment.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <span class="card-number">01</span>
+            <h3>Deepen the India franchise</h3>
+            <p>Chronic brands and wider therapy coverage underpin the strategic fit.</p>
+            <div class="question">
+              <strong>Analytical question</strong>
+              Can growth and brand durability support the acquisition price?
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card-number">02</span>
+            <h3>Build operating scale</h3>
+            <p>The announcement identifies potential synergies across business functions.</p>
+            <div class="question">
+              <strong>Analytical question</strong>
+              How much value remains after integration costs and execution delays?
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card-number">03</span>
+            <h3>Diversify the platform</h3>
+            <p>CDMO capabilities and international operations broaden the business mix.</p>
+            <div class="question">
+              <strong>Analytical question</strong>
+              Does diversification improve cash generation without excessive risk?
+            </div>
+          </article>
+        </div>
+
+        <p class="source">
+          Rationale summarized from the company announcement linked above.
+          CDMO: contract development and manufacturing organization.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="methodology">
+      <div class="container">
+        <p class="eyebrow">03 / Methodology</p>
+        <h2 class="section-title">From research to an investment view.</h2>
+        <p class="section-intro">
+          A structured analytical process connects the source material,
+          operating assumptions, valuation and transaction mechanics.
+        </p>
+
+        <div class="method">
+          <span class="step-number">01</span>
+          <div>
+            <h3>Establish the fact base</h3>
+            <p>Document transaction terms and organize historical financials with consistent periods and units.</p>
+          </div>
+          <p class="method-output">Research pack<br>Historical financials</p>
+        </div>
+
+        <div class="method">
+          <span class="step-number">02</span>
+          <div>
+            <h3>Build standalone forecasts</h3>
+            <p>Translate operating assumptions into revenue, profitability, reinvestment and cash flows.</p>
+          </div>
+          <p class="method-output">Standalone forecasts</p>
+        </div>
+
+        <div class="method">
+          <span class="step-number">03</span>
+          <div>
+            <h3>Assess intrinsic value</h3>
+            <p>Apply a discounted cash flow framework and examine sensitivity to discount rates and terminal assumptions.</p>
+          </div>
+          <p class="method-output">DCF valuation</p>
+        </div>
+
+        <div class="method">
+          <span class="step-number">04</span>
+          <div>
+            <h3>Model the transaction</h3>
+            <p>Connect consideration, financing and share issuance to leverage and earnings per share.</p>
+          </div>
+          <p class="method-output">Transaction model</p>
+        </div>
+
+        <div class="method">
+          <span class="step-number">05</span>
+          <div>
+            <h3>Synthesize the investment case</h3>
+            <p>Bring the strategic and financial perspectives together, linking conclusions to assumptions and risks.</p>
+          </div>
+          <p class="method-output">Final model<br>Investment report</p>
+        </div>
+
+        <p class="note">
+          Model-specific valuation, accretion / dilution and leverage results
+          are presented in the underlying workbooks and investment report.
+          The headline metrics on this page describe announced deal terms.
+        </p>
+      </div>
+    </section>
+
+    <section class="section downloads" id="deliverables">
+      <div class="container">
+        <p class="eyebrow">04 / Project deliverables</p>
+        <h2 class="section-title">Review the work.</h2>
+        <p class="section-intro">
+          Start with the final model and investment report, then explore the
+          supporting valuation and transaction analysis.
+        </p>
+
+        <div class="featured">
+          <article class="file-card">
+            <span class="file-type">XLSX / FLAGSHIP WORKBOOK</span>
+            <h3>Final M&amp;A model</h3>
+            <p>The integrated workbook connecting standalone analysis, valuation and transaction impact.</p>
+            <a href="./Torrent_JB_Final_Model.xlsx" download>Download final model ↓</a>
+          </article>
+
+          <article class="file-card">
+            <span class="file-type">DOCX / INVESTMENT NARRATIVE</span>
+            <h3>Investment report</h3>
+            <p>The written analysis bringing together the deal rationale, financial assessment and conclusions.</p>
+            <a href="./Torrent_JB_MA_Investment_Report.docx" download>Download investment report ↓</a>
+          </article>
+        </div>
+
+        <a class="file-row" href="./Torrent_JB_Transaction_Model.xlsx" download>
+          <span>
+            <strong>Transaction model</strong>
+            <small>Consideration, financing, leverage and accretion / dilution</small>
+          </span>
+          <span>XLSX ↓</span>
+        </a>
+
+        <a class="file-row" href="./Torrent_JB_DCF_Valuation.xlsx" download>
+          <span>
+            <strong>DCF valuation</strong>
+            <small>JB Pharma standalone valuation</small>
+          </span>
+          <span>XLSX ↓</span>
+        </a>
+
+        <a class="file-row" href="./Torrent_Pharma_JB_Pharma_MA_Research_Pack.docx" download>
+          <span>
+            <strong>M&amp;A research pack</strong>
+            <small>Company background, transaction terms and strategic context</small>
+          </span>
+          <span>DOCX ↓</span>
+        </a>
+
+        <details>
+          <summary>Supporting workbooks</summary>
+          <a class="file-row" href="./Torrent_JB_Historical_Financials.xlsx" download>
+            <span><strong>Historical financials</strong></span>
+            <span>XLSX ↓</span>
+          </a>
+          <a class="file-row" href="./Torrent_JB_Standalone_Forecasts.xlsx" download>
+            <span><strong>Standalone forecasts</strong></span>
+            <span>XLSX ↓</span>
+          </a>
+        </details>
+
+        <p class="download-note">
+          Files download in their original Excel or Word format.
+        </p>
+      </div>
+    </section>
+
+    <section class="section skills" id="skills">
+      <div class="container">
+        <p class="eyebrow">05 / Skills demonstrated</p>
+        <h2 class="section-title">Strategy, grounded in financial analysis.</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Research &amp; judgment</h3>
+            <p>Public-source research · Transaction analysis · Strategic assessment</p>
+          </div>
+          <div class="card">
+            <h3>Financial modeling</h3>
+            <p>Forecasting · DCF valuation · Financing and share-count mechanics</p>
+          </div>
+          <div class="card">
+            <h3>Investment communication</h3>
+            <p>Assumption transparency · Risk assessment · Written investment synthesis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>Torrent Pharma × JB Pharma</strong>
+        <p>Independent M&amp;A case study<br>Aarav Mookerjee</p>
+      </div>
+      <div>
+        <strong>Disclaimer</strong>
+        <p>
+          This portfolio project is for educational purposes and is not
+          investment advice or a recommendation to transact in any security.
+          It is not affiliated with or endorsed by Torrent Pharma, JB Pharma
+          or KKR. Public-source information and modeling assumptions may
+          contain errors. Refer to the original sources and underlying
+          workbooks when evaluating the analysis.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
